@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy Boy Friend's Day 💖</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap');
+
+/* Reset & base */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0b0c2c, #2c1a4a);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 15px 60px;
+}
+
+/* Floating hearts container */
+.floating-hearts {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0;
+}
+.heart {
+  position: absolute;
+  font-size: 1.2rem;
+  color: #ff9ccf;
+  opacity: 0.8;
+  animation: floatUp linear infinite;
+  user-select: none;
+  filter: drop-shadow(0 0 2px #ff9ccf);
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-150vh) scale(1.3); opacity: 0; }
+}
+
+/* Opening Section */
+#opening {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  background: url("bg 1.jpg") center/cover no-repeat;
+  filter: brightness(0.5);
+}
+#opening::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(44,26,74,0.7), rgba(11,12,44,0.7));
+  z-index: 0;
+}
+#opening > * { position: relative; z-index: 1; }
+#opening h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 5rem;
+  margin: 0;
+  color: #ff9ccf;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+#opening p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  margin-top: 15px;
+  color: #ffc0d3;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards 1.5s;
+}
+
+/* Tiny flying heart */
+#flying-heart {
+  position: fixed;
+  top: 20%;
+  left: -50px;
+  font-size: 2rem;
+  color: #ff9ccf;
+  filter: drop-shadow(0 0 3px #ff9ccf);
+  animation: flyAcross 15s linear infinite;
+  user-select: none;
+  z-index: 0;
+}
+@keyframes flyAcross {
+  0% { left: -50px; top: 20%; opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { left: 110vw; top: 25%; opacity: 0; }
+}
+
+/* Love Quote Section */
+#quotes-section { margin: 60px 0; }
+.quote-card {
+  background: rgba(44, 26, 74, 0.8);
+  border-radius: 15px;
+  padding: 25px 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+  font-size: 1.3rem;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation-fill-mode: forwards;
+  cursor: default;
+  transition: box-shadow 0.3s ease;
+}
+.quote-card:hover { box-shadow: 0 0 25px #ff9ccf; }
+.quote-card::before {
+  content: "❤";
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #ff9ccf;
+  opacity: 0.3;
+  user-select: none;
+}
+#quotes-section .quote-card:nth-child(1) { animation: fadeInUp 1s ease forwards 0.3s; }
+#quotes-section .quote-card:nth-child(2) { animation: fadeInUp 1s ease forwards 0.8s; }
+#quotes-section .quote-card:nth-child(3) { animation: fadeInUp 1s ease forwards 1.3s; }
+#quotes-section .quote-card:nth-child(4) { animation: fadeInUp 1s ease forwards 1.8s; }
+#quotes-section .quote-card:nth-child(5) { animation: fadeInUp 1s ease forwards 2.3s; }
+
+/* Image Section */
+#image-section {
+  margin: 60px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+.image-card {
+  position: relative;
+  width: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(255, 105, 180, 0.6);
+  cursor: pointer;
+  background: none
+  transition: transform 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+.image-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.image-card:hover { transform: scale(1.05); }
+.image-caption {
+  padding: 12px 15px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.2rem;
+  color: #ff9ccf;
+  text-align: center;
+  background: rgba(44, 26, 74, 0.85);
+}
+
+/* Interactive Gift Section */
+.gift-section {
+  margin: 60px 0;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.gift-box {
+  font-size: 5rem;
+  cursor: pointer;
+  user-select: none;
+  color: #ff9ccf;
+  text-shadow: 0 0 10px #ff9ccf, 0 0 20px #ff1493, 0 0 30px #ff9ccf;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #2c1a4a, #0b0c2c);
+  padding: 20px 30px;
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.7);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+.gift-box:hover { transform: scale(1.15) rotate(10deg); }
+.gift-box:active { transform: scale(0.95) rotate(5deg); }
+.gift-quote {
+  position: absolute;
+  bottom: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 105, 180, 0.9);
+  color: white;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.1rem;
+  padding: 8px 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #ff9ccf;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  white-space: nowrap;
+  user-select: none;
+  z-index: 10;
+}
+.gift-quote.show { opacity: 1; pointer-events: auto; }
+
+/* Closing Section */
+#closing {
+  margin: 80px 0 40px;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #ff9ccf;
+  text-shadow: 0 0 15px #ff9ccf, 0 0 30px #ff1493, 0 0 45px #ff9ccf;
+  opacity: 0;
+  animation: fadeInZoom 2s ease forwards 1s;
+  position: relative;
+}
+#closing .closing-hearts {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: #ff9ccf;
+  opacity: 0.15;
+  pointer-events: none;
+  user-select: none;
+  animation: floatUpSlow 10s linear infinite;
+}
+
+/* Animations */
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInZoom { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+@keyframes floatUpSlow { 0% { transform: translate(-50%, 50%) translateY(0); } 100% { transform: translate(-50%, 50%) translateY(-150px); } }
+
+/* Responsive */
+@media (max-width: 700px) {
+  #opening h1 { font-size: 3.5rem; }
+  #opening p { font-size: 1.3rem; }
+  .quote-card { font-size: 1.1rem; padding: 20px 25px; }
+  .image-card { width: 90vw; margin: 0 auto 25px; }
+  .gift-box { font-size: 4rem; padding: 15px 20px; }
+  #closing { font-size: 2.2rem; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Floating hearts container -->
+<div class="floating-hearts" aria-hidden="true"></div>
+<!-- Tiny flying heart -->
+<div id="flying-heart" aria-hidden="true">💖</div>
+
+<main>
+  <!-- Opening Section -->
+  <section id="opening" aria-label="Welcome section">
+    <h1>Happy Boy Friend's Day 💖</h1>
+    <p>A little surprise… just for you ✨</p>
+  </section>
+
+  <!-- Love Quote Section -->
+  <section id="quotes-section" aria-label="Love quotes section">
+    <div class="quote-card">“I love how I can be completely myself around you.”</div>
+    <div class="quote-card">“Being with you makes my day brighter.”</div>
+    <div class="quote-card">“You’re my safe place, my happiness, my home.”</div>
+    <div class="quote-card">“Even ordinary days feel magical with you.”</div>
+    <div class="quote-card">“All my heart is yours, quietly, completely ❤”</div>
+  </section>
+
+  <!-- Image Section -->
+  <section id="image-section" aria-label="Image gallery">
+    <div class="image-card">
+      <img src ="BATMAN HUG.jpeg" alt="First image" />
+      <div class="image-caption">“You’re my Gotham, my safe place.”</div>
+    </div>
+    <div class="image-card">
+      <img src="black hug.jpg" alt="Second image" />
+      <div class="image-caption">“Every night with you is an adventure.”</div>
+    </div>
+    <div class="image-card">
+      <img src="warrior and princess.jpg" alt="Third image" />
+      <div class="image-caption">“You stole my heart, and I don’t want it back.”</div>
+    </div>
+  </section>
+
+  <!-- Interactive Gift Section -->
+  <section class="gift-section" aria-label="Interactive gift boxes">
+    <div class="gift-box">🎁
+      <div class="gift-quote"></div>
+    </div>
+    <div class="gift-box">🎁
+      <div class="gift-quote"></div>
+    </div>
+    <div class="gift-box">🎁
+      <div class="gift-quote"></div>
+    </div>
+  </section>
+
+  <!-- Closing Section -->
+  <section id="closing" aria-label="Closing heartfelt message">
+    Thanks for being mine. You’re my hero, my love, my everything ❤
+    <div class="closing-hearts">❤ ❤ ❤</div>
+  </section>
+</main>
+
+<script>
+  // Floating hearts
+  const heartsContainer = document.querySelector('.floating-hearts');
+  const heartColors = ['#ff9ccf','#ff69b4','#ffb6c1','#ffc0cb'];
+  function createHeart(){
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random()*100+'vw';
+    heart.style.fontSize = (Math.random()*1.5+1)+'rem';
+    heart.style.animationDuration = (Math.random()*5+5)+'s';
+    heart.style.color = heartColors[Math.floor(Math.random()*heartColors.length)];
+    heart.textContent = '❤';
+    heartsContainer.appendChild(heart);
+    setTimeout(()=>heart.remove(),7000);
+  }
+  setInterval(createHeart,400);
+
+  // Gift click functionality
+  const giftQuotes = [
+    "You make my heart smile every day 💖",
+    "Being with you is my favorite place to be ❤",
+    "You’re my today and all of my tomorrows 💌",
+    "All my love is wrapped up just for you 💝",
+    "You stole my heart… and I don’t want it back 😘"
+  ];
+
+  const giftBoxes = document.querySelectorAll('.gift-box');
+  giftBoxes.forEach(gift => {
+    gift.addEventListener('click', ()=>{
+      const quoteDiv = gift.querySelector('.gift-quote');
+      if(quoteDiv.classList.contains('show')) return;
+      const quote = giftQuotes[Math.floor(Math.random()*giftQuotes.length)];
+      quoteDiv.textContent = quote;
+      quoteDiv.classList.add('show');
+      setTimeout(()=>quoteDiv.classList.remove('show'),5000);
+      quoteDiv.style.transform='translateX(-50%) scale(0.8)';
+      setTimeout(()=>{quoteDiv.style.transform='translateX(-50%) scale(1)';},50);
+    });
+  });
+</script>
+
+</body>
+</html>
